@@ -1,3 +1,5 @@
+// setPrototypeOf on the instance from the constructor
+
 function createUnpaidUser(name, score) {
   this.name = name;
   this.score = score;
