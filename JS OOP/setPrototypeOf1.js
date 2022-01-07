@@ -16,3 +16,4 @@ Object.setPrototypeOf(user1, unpaidUserFunctions);
 // user1.__proto__ + unpaidUserFunctions 
 user1.increment();
 user1;
+user1.__proto__ // {increment: ƒ} 
