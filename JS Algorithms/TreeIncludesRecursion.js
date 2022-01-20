@@ -19,17 +19,13 @@ b.left = d;
 b.right = e;
 c.left = f;
 
-function bfs(root) {
-  const output = [];
-  const q = [root];
-  
-  while (q.length > 0) {
-    const current = q.pop();
-    output.push(current.val);
-    if (current.left) q.unshift(current.left);
-    if (current.right) q.unshift(current.right);
-  }
-  return output;
+function TreeIncludesRecursion(root, target) {
+  if (root === null) return false;
+  if (root.val === target) return true;
+  return (
+    TreeIncludesRecursion(root.left, target) ||
+    TreeIncludesRecursion(root.right, target)
+  );
 }
 
-bfs(a);
+TreeIncludesRecursion(a, 'e');
