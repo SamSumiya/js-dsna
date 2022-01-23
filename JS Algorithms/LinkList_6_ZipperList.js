@@ -19,7 +19,7 @@ x.next = y;
 y.next = z;
 // x -> y -> z
 
-
+// recursive solution
 const zipperLists = (head1, head2) => {
   if (head1 === null && head2 === null) return null
   if (head1 === null) return head2 
@@ -35,6 +35,28 @@ const zipperLists = (head1, head2) => {
 };
 
 
+// iterative solution
+const zipperLists = (head1, head2) => {
+  let copyOfheadOne = head1;
+  let nextHeadOne = head1.next;
+  let tracker = 0;
+
+  while (nextHeadOne !== null && head2 !== null) {
+    if (tracker % 2 === 0) {
+      copyOfheadOne.next = head2;
+      head2 = head2.next;
+    } else {
+      copyOfheadOne.next = nextHeadOne;
+      nextHeadOne = nextHeadOne.next;
+    }
+    copyOfheadOne = copyOfheadOne.next;
+    tracker++;
+  }
+  if (nextHeadOne === null) copyOfheadOne.next = head2;
+  if (head2 === null) copyOfheadOne.next = nextHeadOne;
+
+  return head1;
+};
 
 
 
